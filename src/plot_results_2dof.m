@@ -19,7 +19,7 @@ x0 = params.x0;
 
 %% Figure 1: operating-point arm structure
 fig = figure('Name', '2-DOF operating point', 'Color', 'w');
-ax = axes(fig);
+ax = axes('Parent', fig);
 draw_arm_2dof(q0, params, 'Parent', ax, 'DisplayName', 'Operating point', ...
     'Color', [0 0.4470 0.7410], 'ShowLabels', true);
 axis(ax, 'equal');
@@ -98,7 +98,7 @@ save_figure_pair(fig, figDir, 'fig5_pole_map');
 
 %% Figure 6: initial perturbation pose vs target operating pose
 fig = figure('Name', 'Initial vs target pose', 'Color', 'w');
-ax = axes(fig);
+ax = axes('Parent', fig);
 q_target = q0;
 q_initial = q0 + x0(1:2);
 draw_arm_2dof(q_target, params, 'Parent', ax, 'DisplayName', 'Target pose q_0', ...
