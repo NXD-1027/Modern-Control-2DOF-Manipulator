@@ -1,5 +1,22 @@
 # Modern-Control-2DOF-Manipulator
 
-MATLAB course project for modern control theory: state-space modeling, controllability and observability analysis, Lyapunov stability verification, and LQR control simulation of a 2-DOF planar robotic manipulator.
+This repository contains a MATLAB modern control theory course project:
 
-This initial README is used to initialize the repository and verify write access.
+**二自由度平面机械臂的状态空间建模、稳定性分析与 LQR 控制仿真**
+
+The runnable project is located in:
+
+```text
+modern_control_2dof_arm/
+```
+
+Run it from MATLAB with:
+
+```matlab
+cd modern_control_2dof_arm
+main_2dof_lqr
+```
+
+The project implements mechanism-based modeling, operating-point linearization, state-space analysis, controllability and observability checks, LQR design, Lyapunov stability verification, simulation, and report-ready figure/data export.
+
+See [`modern_control_2dof_arm/README.md`](modern_control_2dof_arm/README.md) for full details.
