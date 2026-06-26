@@ -12,8 +12,14 @@ function sim = simulate_2dof(A, B, K, params)
 x0 = params.x0;
 t = params.t;
 
+% For initial-condition response, the external input is not used. A dummy
+% zero-input channel is kept here for broad compatibility with MATLAB R2023
+% and Control System Toolbox state-space object construction.
+B_dummy = zeros(4, 1);
+D_dummy = zeros(4, 1);
+
 % Open-loop response: dx/dt = A*x
-sys_open = ss(A, zeros(4,0), eye(4), zeros(4,0));
+sys_open = ss(A, B_dummy, eye(4), D_dummy);
 [y_open, t_open, x_open_state] = initial(sys_open, x0, t);
 if isempty(x_open_state)
     x_open = y_open;
@@ -23,7 +29,7 @@ end
 
 % Closed-loop response: dx/dt = (A - B*K)*x
 Ac = A - B*K;
-sys_cl = ss(Ac, zeros(4,0), eye(4), zeros(4,0));
+sys_cl = ss(Ac, B_dummy, eye(4), D_dummy);
 [y_cl, t_cl, x_cl_state] = initial(sys_cl, x0, t);
 if isempty(x_cl_state)
     x_cl = y_cl;
