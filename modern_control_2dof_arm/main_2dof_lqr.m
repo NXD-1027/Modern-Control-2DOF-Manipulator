@@ -112,7 +112,7 @@ for i = 1:size(X, 1)
     for j = 1:size(X, 2)
         val = X(i, j);
         if abs(imag(val)) > 1e-12
-            fprintf(fid, '  % .8e%+ .8ei', real(val), imag(val));
+            fprintf(fid, '  % .8e%+.8ei', real(val), imag(val));
         else
             fprintf(fid, '  % .8e', real(val));
         end
